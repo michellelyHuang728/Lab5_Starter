@@ -41,19 +41,19 @@ function init() {
     const select_option = voice_select.options[voice_select.selectedIndex];
     const voice_name = select_option.getAttribute('data-name');
     utter.voice = voices.find(voice => voice.name === voice_name);
-    utter.onstart = function () {
-      image.alt = 'assets/images/smiling-open.png';
-    };
-    utter.onend = function () {
-      image.src = 'assets/images/smiling.png';
-    };
-    // utter.addEventListener('end', function() {
-    //   image.src = "assets/images/smiling.png";
-    // });
+    // utter.onstart = function () {
+    //   image.src = 'assets/images/smiling-open.png';
+    // };
+    // utter.onend = function () {
+    //   image.src = 'assets/images/smiling.png';
+    // };
+    utter.addEventListener('end', function() {
+      image.src = "assets/images/smiling.png";
+    });
     speechSynthesis.speak(utter);
   }
 
-  // function open_mouth(){
-  //   image.src = "assets/images/smiling-open.png";
-  // }
+  function open_mouth(){
+    image.src = "assets/images/smiling-open.png";
+  }
 }
