@@ -42,7 +42,7 @@ function init() {
     const voice_name = select_option.getAttribute('data-name');
     utter.voice = voices.find(voice => voice.name === voice_name);
     utter.onstart = function () {
-      image.src = 'assets/images/smiling-open.png';
+      image.alt = 'assets/images/smiling-open.png';
     };
     utter.onend = function () {
       image.src = 'assets/images/smiling.png';
