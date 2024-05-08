@@ -35,22 +35,25 @@ function init() {
   
   function speak(){
     const utter=new SpeechSynthesisUtterance(text.value);
-    let this_select_voice=voice_select.selectedIndex;
-    let this_option=voice_select[this_select_voice].value;
-    utter.voice=speechSynthesis.getVoices()[this_option];
-    // utter.onstart = function () {
-    //   image.src = 'assets/images/open-mouth.png';
-    // };
-    // utter.onend = function () {
-    //   image.src = 'assets/images/smiling.png';
-    // };
-    utter.addEventListener('end', function() {
-      image.src = "assets/images/smiling.png";
-    });
+    // let this_select_voice=voice_select.selectedIndex;
+    // let this_option=voice_select[this_select_voice].value;
+    // utter.voice=speechSynthesis.getVoices()[this_option];
+    const select_option = voice_select.options[voice_select.selectedIndex];
+    const voice_name = select_option.getAttribute('data-name');
+    utter.voice = voices.find(voice => voice.name === voice_name);
+    utter.onstart = function () {
+      image.src = 'assets/images/open-mouth.png';
+    };
+    utter.onend = function () {
+      image.src = 'assets/images/smiling.png';
+    };
+    // utter.addEventListener('end', function() {
+    //   image.src = "assets/images/smiling.png";
+    // });
     speechSynthesis.speak(utter);
   }
 
-  function open_mouth(){
-    image.src = "assets/images/smiling-open.png";
-  }
+  // function open_mouth(){
+  //   image.src = "assets/images/smiling-open.png";
+  // }
 }
