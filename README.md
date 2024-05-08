@@ -3,7 +3,7 @@ Michelle Huang
 
 https://michellelyhuang728.github.io/Lab5_Starter/expose.html
 
-
+https://michellelyhuang728.github.io/Lab5_Starter/explore.html
 
 1: I will not use a unit test to test the message feature of messaging application. Because sending a messgae would trigger multiple components of the system but unit tests are used to test a single piece of code. The unit test is not suitable for this complicated task.
 

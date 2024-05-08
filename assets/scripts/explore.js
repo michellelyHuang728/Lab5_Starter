@@ -34,15 +34,15 @@ function init() {
   
   function speak(){
     const utter=new SpeechSynthesisUtterance(text.value);
-    const selectedOption = voice_select.options[voice_select.selectedIndex];
-    const voiceName = selectedOption.getAttribute('data-name');
-    utter.voice = voices.find(voice => voice.name === voiceName);
+    let this_select_voice=voice_select.selectedIndex;
+    let this_option=voice_select[this_select_voice].value;
+    utter.voice=speechSynthesis.getVoices()[this_option];
     utter.onstart = function () {
       image.src = 'assets/images/open-mouth.png';
     };
     utter.onend = function () {
       image.src = 'assets/images/smiling.png';
     };
-    synth.speak(utter);
+    speechSynthesis.speak(utter);
   }
 }
