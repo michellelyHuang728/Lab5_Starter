@@ -89,3 +89,4 @@ test('isHexColor', () => {
 test('isHexColor', () => {
   expect(isHexColor("#abcd")).toBe(false);
 });
+
