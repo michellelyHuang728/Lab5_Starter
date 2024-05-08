@@ -30,6 +30,7 @@ function init() {
 
   button.addEventListener("click", function(){
     speak();
+    open_mouth();
   });
   
   function speak(){
@@ -37,12 +38,19 @@ function init() {
     let this_select_voice=voice_select.selectedIndex;
     let this_option=voice_select[this_select_voice].value;
     utter.voice=speechSynthesis.getVoices()[this_option];
-    utter.onstart = function () {
-      image.src = 'assets/images/open-mouth.png';
-    };
-    utter.onend = function () {
-      image.src = 'assets/images/smiling.png';
-    };
+    // utter.onstart = function () {
+    //   image.src = 'assets/images/open-mouth.png';
+    // };
+    // utter.onend = function () {
+    //   image.src = 'assets/images/smiling.png';
+    // };
+    utter.addEventListener('end', function() {
+      image.src = "assets/images/smiling.png";
+    });
     speechSynthesis.speak(utter);
+  }
+
+  function open_mouth(){
+    image.src = "assets/images/smiling-open.png";
   }
 }
