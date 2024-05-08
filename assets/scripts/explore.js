@@ -34,13 +34,13 @@ function init() {
   
   function speak(){
     const utter=new SpeechSynthesisUtterance(text.value);
-    let this_select_voice=voice_select.selectedIndex;
-    let this_option=voice_select[this_select_voice].value;
-    utter.voice=speechSynthesis.getVoices()[this_option];
-    utterance.onstart = function () {
+    const selectedOption = voice_select.options[voice_select.selectedIndex];
+    const voiceName = selectedOption.getAttribute('data-name');
+    utter.voice = voices.find(voice => voice.name === voiceName);
+    utter.onstart = function () {
       image.src = 'assets/images/open-mouth.png';
     };
-    utterance.onend = function () {
+    utter.onend = function () {
       image.src = 'assets/images/smiling.png';
     };
     synth.speak(utter);
