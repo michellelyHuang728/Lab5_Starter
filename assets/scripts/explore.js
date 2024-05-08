@@ -22,9 +22,10 @@ function init() {
       voice_select.appendChild(option);
     });
   }
-  populateVoiceList();
+  
+  populateVoices();
   speechSynthesis.onvoiceschanged=function(){
-    populateVoiceList();
+    populateVoices();
   }
 
   button.addEventListener("click", function(){
