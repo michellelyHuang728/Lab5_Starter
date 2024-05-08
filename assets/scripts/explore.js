@@ -6,7 +6,7 @@ function init() {
   // TODO
   const synth=window.speechSynthesis;
   const voice_select=document.getElementById('voice-select');
-  const button=document.getElementById('voice-select');
+  const button=document.querySelector('button');
   const text=document.getElementById('text-to-speak');
   const image=document.querySelector("#explore img");
 
@@ -22,7 +22,7 @@ function init() {
       voice_select.appendChild(option);
     });
   }
-  
+
   populateVoices();
   speechSynthesis.onvoiceschanged=function(){
     populateVoices();
